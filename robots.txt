@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://vojtechkral.github.io/sitemap.xml

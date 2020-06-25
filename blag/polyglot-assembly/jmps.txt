@@ -1,0 +1,755 @@
+	Dump of assembler code for function jmps:
+jmp 06 nop nop 		addsls	r0, r0, r11, ror #13
+jmp 07 nop nop 		addsls	r0, r0, r11, ror #15
+jmp 08 nop nop 		addsls	r0, r0, r11, ror #17
+jmp 09 nop nop 		addsls	r0, r0, r11, ror #19
+jmp 0a nop nop 		addsls	r0, r0, r11, ror #21
+jmp 0b nop nop 		addsls	r0, r0, r11, ror #23
+jmp 0c nop nop 		addsls	r0, r0, r11, ror #25
+jmp 0d nop nop 		addsls	r0, r0, r11, ror #27
+jmp 0e nop nop 		addsls	r0, r0, r11, ror #29
+jmp 0f nop nop 		addsls	r0, r0, r11, ror #31
+jmp 10 nop nop 		addsls	r1, r0, r11, ror #1
+jmp 11 nop nop 		addsls	r1, r0, r11, ror #3
+jmp 12 nop nop 		addsls	r1, r0, r11, ror #5
+jmp 13 nop nop 		addsls	r1, r0, r11, ror #7
+jmp 14 nop nop 		addsls	r1, r0, r11, ror #9
+jmp 15 nop nop 		addsls	r1, r0, r11, ror #11
+jmp 16 nop nop 		addsls	r1, r0, r11, ror #13
+jmp 17 nop nop 		addsls	r1, r0, r11, ror #15
+jmp 18 nop nop 		addsls	r1, r0, r11, ror #17
+jmp 19 nop nop 		addsls	r1, r0, r11, ror #19
+jmp 1a nop nop 		addsls	r1, r0, r11, ror #21
+jmp 1b nop nop 		addsls	r1, r0, r11, ror #23
+jmp 1c nop nop 		addsls	r1, r0, r11, ror #25
+jmp 1d nop nop 		addsls	r1, r0, r11, ror #27
+jmp 1e nop nop 		addsls	r1, r0, r11, ror #29
+jmp 1f nop nop 		addsls	r1, r0, r11, ror #31
+jmp 20 nop nop 		addsls	r2, r0, r11, ror #1
+jmp 21 nop nop 		addsls	r2, r0, r11, ror #3
+jmp 22 nop nop 		addsls	r2, r0, r11, ror #5
+jmp 23 nop nop 		addsls	r2, r0, r11, ror #7
+jmp 24 nop nop 		addsls	r2, r0, r11, ror #9
+jmp 25 nop nop 		addsls	r2, r0, r11, ror #11
+jmp 26 nop nop 		addsls	r2, r0, r11, ror #13
+jmp 27 nop nop 		addsls	r2, r0, r11, ror #15
+jmp 28 nop nop 		addsls	r2, r0, r11, ror #17
+jmp 29 nop nop 		addsls	r2, r0, r11, ror #19
+jmp 2a nop nop 		addsls	r2, r0, r11, ror #21
+jmp 2b nop nop 		addsls	r2, r0, r11, ror #23
+jmp 2c nop nop 		addsls	r2, r0, r11, ror #25
+jmp 2d nop nop 		addsls	r2, r0, r11, ror #27
+jmp 2e nop nop 		addsls	r2, r0, r11, ror #29
+jmp 2f nop nop 		addsls	r2, r0, r11, ror #31
+jmp 30 nop nop 		addsls	r3, r0, r11, ror #1
+jmp 31 nop nop 		addsls	r3, r0, r11, ror #3
+jmp 32 nop nop 		addsls	r3, r0, r11, ror #5
+jmp 33 nop nop 		addsls	r3, r0, r11, ror #7
+jmp 34 nop nop 		addsls	r3, r0, r11, ror #9
+jmp 35 nop nop 		addsls	r3, r0, r11, ror #11
+jmp 36 nop nop 		addsls	r3, r0, r11, ror #13
+jmp 37 nop nop 		addsls	r3, r0, r11, ror #15
+jmp 38 nop nop 		addsls	r3, r0, r11, ror #17
+jmp 39 nop nop 		addsls	r3, r0, r11, ror #19
+jmp 3a nop nop 		addsls	r3, r0, r11, ror #21
+jmp 3b nop nop 		addsls	r3, r0, r11, ror #23
+jmp 3c nop nop 		addsls	r3, r0, r11, ror #25
+jmp 3d nop nop 		addsls	r3, r0, r11, ror #27
+jmp 3e nop nop 		addsls	r3, r0, r11, ror #29
+jmp 3f nop nop 		addsls	r3, r0, r11, ror #31
+jmp 40 nop nop 		addsls	r4, r0, r11, ror #1
+jmp 41 nop nop 		addsls	r4, r0, r11, ror #3
+jmp 42 nop nop 		addsls	r4, r0, r11, ror #5
+jmp 43 nop nop 		addsls	r4, r0, r11, ror #7
+jmp 44 nop nop 		addsls	r4, r0, r11, ror #9
+jmp 45 nop nop 		addsls	r4, r0, r11, ror #11
+jmp 46 nop nop 		addsls	r4, r0, r11, ror #13
+jmp 47 nop nop 		addsls	r4, r0, r11, ror #15
+jmp 48 nop nop 		addsls	r4, r0, r11, ror #17
+jmp 49 nop nop 		addsls	r4, r0, r11, ror #19
+jmp 4a nop nop 		addsls	r4, r0, r11, ror #21
+jmp 4b nop nop 		addsls	r4, r0, r11, ror #23
+jmp 4c nop nop 		addsls	r4, r0, r11, ror #25
+jmp 4d nop nop 		addsls	r4, r0, r11, ror #27
+jmp 4e nop nop 		addsls	r4, r0, r11, ror #29
+jmp 4f nop nop 		addsls	r4, r0, r11, ror #31
+jmp 50 nop nop 		addsls	r5, r0, r11, ror #1
+jmp 51 nop nop 		addsls	r5, r0, r11, ror #3
+jmp 52 nop nop 		addsls	r5, r0, r11, ror #5
+jmp 53 nop nop 		addsls	r5, r0, r11, ror #7
+jmp 54 nop nop 		addsls	r5, r0, r11, ror #9
+jmp 55 nop nop 		addsls	r5, r0, r11, ror #11
+jmp 56 nop nop 		addsls	r5, r0, r11, ror #13
+jmp 57 nop nop 		addsls	r5, r0, r11, ror #15
+jmp 58 nop nop 		addsls	r5, r0, r11, ror #17
+jmp 59 nop nop 		addsls	r5, r0, r11, ror #19
+jmp 5a nop nop 		addsls	r5, r0, r11, ror #21
+jmp 5b nop nop 		addsls	r5, r0, r11, ror #23
+jmp 5c nop nop 		addsls	r5, r0, r11, ror #25
+jmp 5d nop nop 		addsls	r5, r0, r11, ror #27
+jmp 5e nop nop 		addsls	r5, r0, r11, ror #29
+jmp 5f nop nop 		addsls	r5, r0, r11, ror #31
+jmp 60 nop nop 		addsls	r6, r0, r11, ror #1
+jmp 61 nop nop 		addsls	r6, r0, r11, ror #3
+jmp 62 nop nop 		addsls	r6, r0, r11, ror #5
+jmp 63 nop nop 		addsls	r6, r0, r11, ror #7
+jmp 64 nop nop 		addsls	r6, r0, r11, ror #9
+jmp 65 nop nop 		addsls	r6, r0, r11, ror #11
+jmp 66 nop nop 		addsls	r6, r0, r11, ror #13
+jmp 67 nop nop 		addsls	r6, r0, r11, ror #15
+jmp 68 nop nop 		addsls	r6, r0, r11, ror #17
+jmp 69 nop nop 		addsls	r6, r0, r11, ror #19
+jmp 6a nop nop 		addsls	r6, r0, r11, ror #21
+jmp 6b nop nop 		addsls	r6, r0, r11, ror #23
+jmp 6c nop nop 		addsls	r6, r0, r11, ror #25
+jmp 6d nop nop 		addsls	r6, r0, r11, ror #27
+jmp 6e nop nop 		addsls	r6, r0, r11, ror #29
+jmp 6f nop nop 		addsls	r6, r0, r11, ror #31
+jmp 70 nop nop 		addsls	r7, r0, r11, ror #1
+jmp 71 nop nop 		addsls	r7, r0, r11, ror #3
+jmp 72 nop nop 		addsls	r7, r0, r11, ror #5
+jmp 73 nop nop 		addsls	r7, r0, r11, ror #7
+jmp 74 nop nop 		addsls	r7, r0, r11, ror #9
+jmp 75 nop nop 		addsls	r7, r0, r11, ror #11
+jmp 76 nop nop 		addsls	r7, r0, r11, ror #13
+jmp 77 nop nop 		addsls	r7, r0, r11, ror #15
+jmp 78 nop nop 		addsls	r7, r0, r11, ror #17
+jmp 79 nop nop 		addsls	r7, r0, r11, ror #19
+jmp 7a nop nop 		addsls	r7, r0, r11, ror #21
+jmp 7b nop nop 		addsls	r7, r0, r11, ror #23
+jmp 7c nop nop 		addsls	r7, r0, r11, ror #25
+jmp 7d nop nop 		addsls	r7, r0, r11, ror #27
+jmp 7e nop nop 		addsls	r7, r0, r11, ror #29
+jmp 7f nop nop 		addsls	r7, r0, r11, ror #31
+jmp 80 nop nop 		addsls	r8, r0, r11, ror #1
+jmp 81 nop nop 		addsls	r8, r0, r11, ror #3
+jmp 82 nop nop 		addsls	r8, r0, r11, ror #5
+jmp 83 nop nop 		addsls	r8, r0, r11, ror #7
+jmp 84 nop nop 		addsls	r8, r0, r11, ror #9
+jmp 85 nop nop 		addsls	r8, r0, r11, ror #11
+jmp 86 nop nop 		addsls	r8, r0, r11, ror #13
+jmp 87 nop nop 		addsls	r8, r0, r11, ror #15
+jmp 88 nop nop 		addsls	r8, r0, r11, ror #17
+jmp 89 nop nop 		addsls	r8, r0, r11, ror #19
+jmp 8a nop nop 		addsls	r8, r0, r11, ror #21
+jmp 8b nop nop 		addsls	r8, r0, r11, ror #23
+jmp 8c nop nop 		addsls	r8, r0, r11, ror #25
+jmp 8d nop nop 		addsls	r8, r0, r11, ror #27
+jmp 8e nop nop 		addsls	r8, r0, r11, ror #29
+jmp 8f nop nop 		addsls	r8, r0, r11, ror #31
+jmp 90 nop nop 		addsls	r9, r0, r11, ror #1
+jmp 91 nop nop 		addsls	r9, r0, r11, ror #3
+jmp 92 nop nop 		addsls	r9, r0, r11, ror #5
+jmp 93 nop nop 		addsls	r9, r0, r11, ror #7
+jmp 94 nop nop 		addsls	r9, r0, r11, ror #9
+jmp 95 nop nop 		addsls	r9, r0, r11, ror #11
+jmp 96 nop nop 		addsls	r9, r0, r11, ror #13
+jmp 97 nop nop 		addsls	r9, r0, r11, ror #15
+jmp 98 nop nop 		addsls	r9, r0, r11, ror #17
+jmp 99 nop nop 		addsls	r9, r0, r11, ror #19
+jmp 9a nop nop 		addsls	r9, r0, r11, ror #21
+jmp 9b nop nop 		addsls	r9, r0, r11, ror #23
+jmp 9c nop nop 		addsls	r9, r0, r11, ror #25
+jmp 9d nop nop 		addsls	r9, r0, r11, ror #27
+jmp 9e nop nop 		addsls	r9, r0, r11, ror #29
+jmp 9f nop nop 		addsls	r9, r0, r11, ror #31
+jmp a0 nop nop 		addsls	r10, r0, r11, ror #1
+jmp a1 nop nop 		addsls	r10, r0, r11, ror #3
+jmp a2 nop nop 		addsls	r10, r0, r11, ror #5
+jmp a3 nop nop 		addsls	r10, r0, r11, ror #7
+jmp a4 nop nop 		addsls	r10, r0, r11, ror #9
+jmp a5 nop nop 		addsls	r10, r0, r11, ror #11
+jmp a6 nop nop 		addsls	r10, r0, r11, ror #13
+jmp a7 nop nop 		addsls	r10, r0, r11, ror #15
+jmp a8 nop nop 		addsls	r10, r0, r11, ror #17
+jmp a9 nop nop 		addsls	r10, r0, r11, ror #19
+jmp aa nop nop 		addsls	r10, r0, r11, ror #21
+jmp ab nop nop 		addsls	r10, r0, r11, ror #23
+jmp ac nop nop 		addsls	r10, r0, r11, ror #25
+jmp ad nop nop 		addsls	r10, r0, r11, ror #27
+jmp ae nop nop 		addsls	r10, r0, r11, ror #29
+jmp af nop nop 		addsls	r10, r0, r11, ror #31
+jmp b0 nop nop 		addsls	r11, r0, r11, ror #1
+jmp b1 nop nop 		addsls	r11, r0, r11, ror #3
+jmp b2 nop nop 		addsls	r11, r0, r11, ror #5
+jmp b3 nop nop 		addsls	r11, r0, r11, ror #7
+jmp b4 nop nop 		addsls	r11, r0, r11, ror #9
+jmp b5 nop nop 		addsls	r11, r0, r11, ror #11
+jmp b6 nop nop 		addsls	r11, r0, r11, ror #13
+jmp b7 nop nop 		addsls	r11, r0, r11, ror #15
+jmp b8 nop nop 		addsls	r11, r0, r11, ror #17
+jmp b9 nop nop 		addsls	r11, r0, r11, ror #19
+jmp ba nop nop 		addsls	r11, r0, r11, ror #21
+jmp bb nop nop 		addsls	r11, r0, r11, ror #23
+jmp bc nop nop 		addsls	r11, r0, r11, ror #25
+jmp bd nop nop 		addsls	r11, r0, r11, ror #27
+jmp be nop nop 		addsls	r11, r0, r11, ror #29
+jmp bf nop nop 		addsls	r11, r0, r11, ror #31
+jmp c0 nop nop 		addsls	r12, r0, r11, ror #1
+jmp c1 nop nop 		addsls	r12, r0, r11, ror #3
+jmp c2 nop nop 		addsls	r12, r0, r11, ror #5
+jmp c3 nop nop 		addsls	r12, r0, r11, ror #7
+jmp c4 nop nop 		addsls	r12, r0, r11, ror #9
+jmp c5 nop nop 		addsls	r12, r0, r11, ror #11
+jmp c6 nop nop 		addsls	r12, r0, r11, ror #13
+jmp c7 nop nop 		addsls	r12, r0, r11, ror #15
+jmp c8 nop nop 		addsls	r12, r0, r11, ror #17
+jmp c9 nop nop 		addsls	r12, r0, r11, ror #19
+jmp ca nop nop 		addsls	r12, r0, r11, ror #21
+jmp cb nop nop 		addsls	r12, r0, r11, ror #23
+jmp cc nop nop 		addsls	r12, r0, r11, ror #25
+jmp cd nop nop 		addsls	r12, r0, r11, ror #27
+jmp ce nop nop 		addsls	r12, r0, r11, ror #29
+jmp cf nop nop 		addsls	r12, r0, r11, ror #31
+jmp d0 nop nop 		addsls	sp, r0, r11, ror #1
+jmp d1 nop nop 		addsls	sp, r0, r11, ror #3
+jmp d2 nop nop 		addsls	sp, r0, r11, ror #5
+jmp d3 nop nop 		addsls	sp, r0, r11, ror #7
+jmp d4 nop nop 		addsls	sp, r0, r11, ror #9
+jmp d5 nop nop 		addsls	sp, r0, r11, ror #11
+jmp d6 nop nop 		addsls	sp, r0, r11, ror #13
+jmp d7 nop nop 		addsls	sp, r0, r11, ror #15
+jmp d8 nop nop 		addsls	sp, r0, r11, ror #17
+jmp d9 nop nop 		addsls	sp, r0, r11, ror #19
+jmp da nop nop 		addsls	sp, r0, r11, ror #21
+jmp db nop nop 		addsls	sp, r0, r11, ror #23
+jmp dc nop nop 		addsls	sp, r0, r11, ror #25
+jmp dd nop nop 		addsls	sp, r0, r11, ror #27
+jmp de nop nop 		addsls	sp, r0, r11, ror #29
+jmp df nop nop 		addsls	sp, r0, r11, ror #31
+jmp e0 nop nop 		addsls	lr, r0, r11, ror #1
+jmp e1 nop nop 		addsls	lr, r0, r11, ror #3
+jmp e2 nop nop 		addsls	lr, r0, r11, ror #5
+jmp e3 nop nop 		addsls	lr, r0, r11, ror #7
+jmp e4 nop nop 		addsls	lr, r0, r11, ror #9
+jmp e5 nop nop 		addsls	lr, r0, r11, ror #11
+jmp e6 nop nop 		addsls	lr, r0, r11, ror #13
+jmp e7 nop nop 		addsls	lr, r0, r11, ror #15
+jmp e8 nop nop 		addsls	lr, r0, r11, ror #17
+jmp e9 nop nop 		addsls	lr, r0, r11, ror #19
+jmp ea nop nop 		addsls	lr, r0, r11, ror #21
+jmp eb nop nop 		addsls	lr, r0, r11, ror #23
+jmp ec nop nop 		addsls	lr, r0, r11, ror #25
+jmp ed nop nop 		addsls	lr, r0, r11, ror #27
+jmp ee nop nop 		addsls	lr, r0, r11, ror #29
+jmp ef nop nop 		addsls	lr, r0, r11, ror #31
+jmp f0 nop nop 		addsls	pc, r0, r11, ror #1
+jmp f1 nop nop 		addsls	pc, r0, r11, ror #3
+jmp f2 nop nop 		addsls	pc, r0, r11, ror #5
+jmp f3 nop nop 		addsls	pc, r0, r11, ror #7
+jmp f4 nop nop 		addsls	pc, r0, r11, ror #9
+jmp f5 nop nop 		addsls	pc, r0, r11, ror #11
+jmp f6 nop nop 		addsls	pc, r0, r11, ror #13
+jmp f7 nop nop 		addsls	pc, r0, r11, ror #15
+jmp f8 nop nop 		addsls	pc, r0, r11, ror #17
+jmp f9 nop nop 		addsls	pc, r0, r11, ror #19
+jmp fa nop nop 		addsls	pc, r0, r11, ror #21
+jmp fb nop nop 		addsls	pc, r0, r11, ror #23
+jmp fc nop nop 		addsls	pc, r0, r11, ror #25
+jmp fd nop nop 		addsls	pc, r0, r11, ror #27
+jmp fe nop nop 		addsls	pc, r0, r11, ror #29
+jmp ff nop nop 		addsls	pc, r0, r11, ror #31
+nop jmp 05 nop 		mulls	r5, r0, r11
+nop jmp 06 nop 		mulls	r6, r0, r11
+nop jmp 07 nop 		mulls	r7, r0, r11
+nop jmp 08 nop 		mulls	r8, r0, r11
+nop jmp 09 nop 		mulls	r9, r0, r11
+nop jmp 0a nop 		mulls	r10, r0, r11
+nop jmp 0b nop 		mulls	r11, r0, r11
+nop jmp 0c nop 		mulls	r12, r0, r11
+nop jmp 0d nop 		mulls	sp, r0, r11
+nop jmp 0e nop 		mulls	lr, r0, r11
+nop jmp 0f nop 		mulls	pc, r0, r11	; <UNPREDICTABLE>
+nop jmp 10 nop 		mulsls	r0, r0, r11
+nop jmp 11 nop 		mulsls	r1, r0, r11
+nop jmp 12 nop 		mulsls	r2, r0, r11
+nop jmp 13 nop 		mulsls	r3, r0, r11
+nop jmp 14 nop 		mulsls	r4, r0, r11
+nop jmp 15 nop 		mulsls	r5, r0, r11
+nop jmp 16 nop 		mulsls	r6, r0, r11
+nop jmp 17 nop 		mulsls	r7, r0, r11
+nop jmp 18 nop 		mulsls	r8, r0, r11
+nop jmp 19 nop 		mulsls	r9, r0, r11
+nop jmp 1a nop 		mulsls	r10, r0, r11
+nop jmp 1b nop 		mulsls	r11, r0, r11
+nop jmp 1c nop 		mulsls	r12, r0, r11
+nop jmp 1d nop 		mulsls	sp, r0, r11
+nop jmp 1e nop 		mulsls	lr, r0, r11
+nop jmp 1f nop 		mulsls	pc, r0, r11	; <UNPREDICTABLE>
+nop jmp 20 nop 		mlals	r0, r0, r11, lr
+nop jmp 21 nop 		mlals	r1, r0, r11, lr
+nop jmp 22 nop 		mlals	r2, r0, r11, lr
+nop jmp 23 nop 		mlals	r3, r0, r11, lr
+nop jmp 24 nop 		mlals	r4, r0, r11, lr
+nop jmp 25 nop 		mlals	r5, r0, r11, lr
+nop jmp 26 nop 		mlals	r6, r0, r11, lr
+nop jmp 27 nop 		mlals	r7, r0, r11, lr
+nop jmp 28 nop 		mlals	r8, r0, r11, lr
+nop jmp 29 nop 		mlals	r9, r0, r11, lr
+nop jmp 2a nop 		mlals	r10, r0, r11, lr
+nop jmp 2b nop 		mlals	r11, r0, r11, lr
+nop jmp 2c nop 		mlals	r12, r0, r11, lr
+nop jmp 2d nop 		mlals	sp, r0, r11, lr
+nop jmp 2e nop 		mlals	lr, r0, r11, lr
+nop jmp 2f nop 		mlals	pc, r0, r11, lr	; <UNPREDICTABLE>
+nop jmp 30 nop 		mlasls	r0, r0, r11, lr
+nop jmp 31 nop 		mlasls	r1, r0, r11, lr
+nop jmp 32 nop 		mlasls	r2, r0, r11, lr
+nop jmp 33 nop 		mlasls	r3, r0, r11, lr
+nop jmp 34 nop 		mlasls	r4, r0, r11, lr
+nop jmp 35 nop 		mlasls	r5, r0, r11, lr
+nop jmp 36 nop 		mlasls	r6, r0, r11, lr
+nop jmp 37 nop 		mlasls	r7, r0, r11, lr
+nop jmp 38 nop 		mlasls	r8, r0, r11, lr
+nop jmp 39 nop 		mlasls	r9, r0, r11, lr
+nop jmp 3a nop 		mlasls	r10, r0, r11, lr
+nop jmp 3b nop 		mlasls	r11, r0, r11, lr
+nop jmp 3c nop 		mlasls	r12, r0, r11, lr
+nop jmp 3d nop 		mlasls	sp, r0, r11, lr
+nop jmp 3e nop 		mlasls	lr, r0, r11, lr
+nop jmp 3f nop 		mlasls	pc, r0, r11, lr	; <UNPREDICTABLE>
+nop jmp 40 nop 				; <UNDEFINED> instruction: 0x9040eb90
+nop jmp 41 nop 				; <UNDEFINED> instruction: 0x9041eb90
+nop jmp 42 nop 				; <UNDEFINED> instruction: 0x9042eb90
+nop jmp 43 nop 				; <UNDEFINED> instruction: 0x9043eb90
+nop jmp 44 nop 				; <UNDEFINED> instruction: 0x9044eb90
+nop jmp 45 nop 				; <UNDEFINED> instruction: 0x9045eb90
+nop jmp 46 nop 				; <UNDEFINED> instruction: 0x9046eb90
+nop jmp 47 nop 				; <UNDEFINED> instruction: 0x9047eb90
+nop jmp 48 nop 				; <UNDEFINED> instruction: 0x9048eb90
+nop jmp 49 nop 				; <UNDEFINED> instruction: 0x9049eb90
+nop jmp 4a nop 				; <UNDEFINED> instruction: 0x904aeb90
+nop jmp 4b nop 				; <UNDEFINED> instruction: 0x904beb90
+nop jmp 4c nop 				; <UNDEFINED> instruction: 0x904ceb90
+nop jmp 4d nop 				; <UNDEFINED> instruction: 0x904deb90
+nop jmp 4e nop 				; <UNDEFINED> instruction: 0x904eeb90
+nop jmp 4f nop 				; <UNDEFINED> instruction: 0x904feb90
+nop jmp 50 nop 				; <UNDEFINED> instruction: 0x9050eb90
+nop jmp 51 nop 				; <UNDEFINED> instruction: 0x9051eb90
+nop jmp 52 nop 				; <UNDEFINED> instruction: 0x9052eb90
+nop jmp 53 nop 				; <UNDEFINED> instruction: 0x9053eb90
+nop jmp 54 nop 				; <UNDEFINED> instruction: 0x9054eb90
+nop jmp 55 nop 				; <UNDEFINED> instruction: 0x9055eb90
+nop jmp 56 nop 				; <UNDEFINED> instruction: 0x9056eb90
+nop jmp 57 nop 				; <UNDEFINED> instruction: 0x9057eb90
+nop jmp 58 nop 				; <UNDEFINED> instruction: 0x9058eb90
+nop jmp 59 nop 				; <UNDEFINED> instruction: 0x9059eb90
+nop jmp 5a nop 				; <UNDEFINED> instruction: 0x905aeb90
+nop jmp 5b nop 				; <UNDEFINED> instruction: 0x905beb90
+nop jmp 5c nop 				; <UNDEFINED> instruction: 0x905ceb90
+nop jmp 5d nop 				; <UNDEFINED> instruction: 0x905deb90
+nop jmp 5e nop 				; <UNDEFINED> instruction: 0x905eeb90
+nop jmp 5f nop 				; <UNDEFINED> instruction: 0x905feb90
+nop jmp 60 nop 				; <UNDEFINED> instruction: 0x9060eb90
+nop jmp 61 nop 				; <UNDEFINED> instruction: 0x9061eb90
+nop jmp 62 nop 				; <UNDEFINED> instruction: 0x9062eb90
+nop jmp 63 nop 				; <UNDEFINED> instruction: 0x9063eb90
+nop jmp 64 nop 				; <UNDEFINED> instruction: 0x9064eb90
+nop jmp 65 nop 				; <UNDEFINED> instruction: 0x9065eb90
+nop jmp 66 nop 				; <UNDEFINED> instruction: 0x9066eb90
+nop jmp 67 nop 				; <UNDEFINED> instruction: 0x9067eb90
+nop jmp 68 nop 				; <UNDEFINED> instruction: 0x9068eb90
+nop jmp 69 nop 				; <UNDEFINED> instruction: 0x9069eb90
+nop jmp 6a nop 				; <UNDEFINED> instruction: 0x906aeb90
+nop jmp 6b nop 				; <UNDEFINED> instruction: 0x906beb90
+nop jmp 6c nop 				; <UNDEFINED> instruction: 0x906ceb90
+nop jmp 6d nop 				; <UNDEFINED> instruction: 0x906deb90
+nop jmp 6e nop 				; <UNDEFINED> instruction: 0x906eeb90
+nop jmp 6f nop 				; <UNDEFINED> instruction: 0x906feb90
+nop jmp 70 nop 				; <UNDEFINED> instruction: 0x9070eb90
+nop jmp 71 nop 				; <UNDEFINED> instruction: 0x9071eb90
+nop jmp 72 nop 				; <UNDEFINED> instruction: 0x9072eb90
+nop jmp 73 nop 				; <UNDEFINED> instruction: 0x9073eb90
+nop jmp 74 nop 				; <UNDEFINED> instruction: 0x9074eb90
+nop jmp 75 nop 				; <UNDEFINED> instruction: 0x9075eb90
+nop jmp 76 nop 				; <UNDEFINED> instruction: 0x9076eb90
+nop jmp 77 nop 				; <UNDEFINED> instruction: 0x9077eb90
+nop jmp 78 nop 				; <UNDEFINED> instruction: 0x9078eb90
+nop jmp 79 nop 				; <UNDEFINED> instruction: 0x9079eb90
+nop jmp 7a nop 				; <UNDEFINED> instruction: 0x907aeb90
+nop jmp 7b nop 				; <UNDEFINED> instruction: 0x907beb90
+nop jmp 7c nop 				; <UNDEFINED> instruction: 0x907ceb90
+nop jmp 7d nop 				; <UNDEFINED> instruction: 0x907deb90
+nop jmp 7e nop 				; <UNDEFINED> instruction: 0x907eeb90
+nop jmp 7f nop 				; <UNDEFINED> instruction: 0x907feb90
+nop jmp 80 nop 		umullls	lr, r0, r0, r11
+nop jmp 81 nop 		umullls	lr, r1, r0, r11
+nop jmp 82 nop 		umullls	lr, r2, r0, r11
+nop jmp 83 nop 		umullls	lr, r3, r0, r11
+nop jmp 84 nop 		umullls	lr, r4, r0, r11
+nop jmp 85 nop 		umullls	lr, r5, r0, r11
+nop jmp 86 nop 		umullls	lr, r6, r0, r11
+nop jmp 87 nop 		umullls	lr, r7, r0, r11
+nop jmp 88 nop 		umullls	lr, r8, r0, r11
+nop jmp 89 nop 		umullls	lr, r9, r0, r11
+nop jmp 8a nop 		umullls	lr, r10, r0, r11
+nop jmp 8b nop 		umullls	lr, r11, r0, r11
+nop jmp 8c nop 		umullls	lr, r12, r0, r11
+nop jmp 8d nop 		umullls	lr, sp, r0, r11
+nop jmp 8e nop 		umullls	lr, lr, r0, r11	; <UNPREDICTABLE>
+nop jmp 8f nop 		umullls	lr, pc, r0, r11	; <UNPREDICTABLE>
+nop jmp 90 nop 		umullsls	lr, r0, r0, r11
+nop jmp 91 nop 		umullsls	lr, r1, r0, r11
+nop jmp 92 nop 		umullsls	lr, r2, r0, r11
+nop jmp 93 nop 		umullsls	lr, r3, r0, r11
+nop jmp 94 nop 		umullsls	lr, r4, r0, r11
+nop jmp 95 nop 		umullsls	lr, r5, r0, r11
+nop jmp 96 nop 		umullsls	lr, r6, r0, r11
+nop jmp 97 nop 		umullsls	lr, r7, r0, r11
+nop jmp 98 nop 		umullsls	lr, r8, r0, r11
+nop jmp 99 nop 		umullsls	lr, r9, r0, r11
+nop jmp 9a nop 		umullsls	lr, r10, r0, r11
+nop jmp 9b nop 		umullsls	lr, r11, r0, r11
+nop jmp 9c nop 		umullsls	lr, r12, r0, r11
+nop jmp 9d nop 		umullsls	lr, sp, r0, r11
+nop jmp 9e nop 		umullsls	lr, lr, r0, r11	; <UNPREDICTABLE>
+nop jmp 9f nop 		umullsls	lr, pc, r0, r11	; <UNPREDICTABLE>
+nop jmp a0 nop 		umlalls	lr, r0, r0, r11
+nop jmp a1 nop 		umlalls	lr, r1, r0, r11
+nop jmp a2 nop 		umlalls	lr, r2, r0, r11
+nop jmp a3 nop 		umlalls	lr, r3, r0, r11
+nop jmp a4 nop 		umlalls	lr, r4, r0, r11
+nop jmp a5 nop 		umlalls	lr, r5, r0, r11
+nop jmp a6 nop 		umlalls	lr, r6, r0, r11
+nop jmp a7 nop 		umlalls	lr, r7, r0, r11
+nop jmp a8 nop 		umlalls	lr, r8, r0, r11
+nop jmp a9 nop 		umlalls	lr, r9, r0, r11
+nop jmp aa nop 		umlalls	lr, r10, r0, r11
+nop jmp ab nop 		umlalls	lr, r11, r0, r11
+nop jmp ac nop 		umlalls	lr, r12, r0, r11
+nop jmp ad nop 		umlalls	lr, sp, r0, r11
+nop jmp ae nop 		umlalls	lr, lr, r0, r11	; <UNPREDICTABLE>
+nop jmp af nop 		umlalls	lr, pc, r0, r11	; <UNPREDICTABLE>
+nop jmp b0 nop 		umlalsls	lr, r0, r0, r11
+nop jmp b1 nop 		umlalsls	lr, r1, r0, r11
+nop jmp b2 nop 		umlalsls	lr, r2, r0, r11
+nop jmp b3 nop 		umlalsls	lr, r3, r0, r11
+nop jmp b4 nop 		umlalsls	lr, r4, r0, r11
+nop jmp b5 nop 		umlalsls	lr, r5, r0, r11
+nop jmp b6 nop 		umlalsls	lr, r6, r0, r11
+nop jmp b7 nop 		umlalsls	lr, r7, r0, r11
+nop jmp b8 nop 		umlalsls	lr, r8, r0, r11
+nop jmp b9 nop 		umlalsls	lr, r9, r0, r11
+nop jmp ba nop 		umlalsls	lr, r10, r0, r11
+nop jmp bb nop 		umlalsls	lr, r11, r0, r11
+nop jmp bc nop 		umlalsls	lr, r12, r0, r11
+nop jmp bd nop 		umlalsls	lr, sp, r0, r11
+nop jmp be nop 		umlalsls	lr, lr, r0, r11	; <UNPREDICTABLE>
+nop jmp bf nop 		umlalsls	lr, pc, r0, r11	; <UNPREDICTABLE>
+nop jmp c0 nop 		smullls	lr, r0, r0, r11
+nop jmp c1 nop 		smullls	lr, r1, r0, r11
+nop jmp c2 nop 		smullls	lr, r2, r0, r11
+nop jmp c3 nop 		smullls	lr, r3, r0, r11
+nop jmp c4 nop 		smullls	lr, r4, r0, r11
+nop jmp c5 nop 		smullls	lr, r5, r0, r11
+nop jmp c6 nop 		smullls	lr, r6, r0, r11
+nop jmp c7 nop 		smullls	lr, r7, r0, r11
+nop jmp c8 nop 		smullls	lr, r8, r0, r11
+nop jmp c9 nop 		smullls	lr, r9, r0, r11
+nop jmp ca nop 		smullls	lr, r10, r0, r11
+nop jmp cb nop 		smullls	lr, r11, r0, r11
+nop jmp cc nop 		smullls	lr, r12, r0, r11
+nop jmp cd nop 		smullls	lr, sp, r0, r11
+nop jmp ce nop 		smullls	lr, lr, r0, r11	; <UNPREDICTABLE>
+nop jmp cf nop 		smullls	lr, pc, r0, r11	; <UNPREDICTABLE>
+nop jmp d0 nop 		smullsls	lr, r0, r0, r11
+nop jmp d1 nop 		smullsls	lr, r1, r0, r11
+nop jmp d2 nop 		smullsls	lr, r2, r0, r11
+nop jmp d3 nop 		smullsls	lr, r3, r0, r11
+nop jmp d4 nop 		smullsls	lr, r4, r0, r11
+nop jmp d5 nop 		smullsls	lr, r5, r0, r11
+nop jmp d6 nop 		smullsls	lr, r6, r0, r11
+nop jmp d7 nop 		smullsls	lr, r7, r0, r11
+nop jmp d8 nop 		smullsls	lr, r8, r0, r11
+nop jmp d9 nop 		smullsls	lr, r9, r0, r11
+nop jmp da nop 		smullsls	lr, r10, r0, r11
+nop jmp db nop 		smullsls	lr, r11, r0, r11
+nop jmp dc nop 		smullsls	lr, r12, r0, r11
+nop jmp dd nop 		smullsls	lr, sp, r0, r11
+nop jmp de nop 		smullsls	lr, lr, r0, r11	; <UNPREDICTABLE>
+nop jmp df nop 		smullsls	lr, pc, r0, r11	; <UNPREDICTABLE>
+nop jmp e0 nop 		smlalls	lr, r0, r0, r11
+nop jmp e1 nop 		smlalls	lr, r1, r0, r11
+nop jmp e2 nop 		smlalls	lr, r2, r0, r11
+nop jmp e3 nop 		smlalls	lr, r3, r0, r11
+nop jmp e4 nop 		smlalls	lr, r4, r0, r11
+nop jmp e5 nop 		smlalls	lr, r5, r0, r11
+nop jmp e6 nop 		smlalls	lr, r6, r0, r11
+nop jmp e7 nop 		smlalls	lr, r7, r0, r11
+nop jmp e8 nop 		smlalls	lr, r8, r0, r11
+nop jmp e9 nop 		smlalls	lr, r9, r0, r11
+nop jmp ea nop 		smlalls	lr, r10, r0, r11
+nop jmp eb nop 		smlalls	lr, r11, r0, r11
+nop jmp ec nop 		smlalls	lr, r12, r0, r11
+nop jmp ed nop 		smlalls	lr, sp, r0, r11
+nop jmp ee nop 		smlalls	lr, lr, r0, r11	; <UNPREDICTABLE>
+nop jmp ef nop 		smlalls	lr, pc, r0, r11	; <UNPREDICTABLE>
+nop jmp f0 nop 		smlalsls	lr, r0, r0, r11
+nop jmp f1 nop 		smlalsls	lr, r1, r0, r11
+nop jmp f2 nop 		smlalsls	lr, r2, r0, r11
+nop jmp f3 nop 		smlalsls	lr, r3, r0, r11
+nop jmp f4 nop 		smlalsls	lr, r4, r0, r11
+nop jmp f5 nop 		smlalsls	lr, r5, r0, r11
+nop jmp f6 nop 		smlalsls	lr, r6, r0, r11
+nop jmp f7 nop 		smlalsls	lr, r7, r0, r11
+nop jmp f8 nop 		smlalsls	lr, r8, r0, r11
+nop jmp f9 nop 		smlalsls	lr, r9, r0, r11
+nop jmp fa nop 		smlalsls	lr, r10, r0, r11
+nop jmp fb nop 		smlalsls	lr, r11, r0, r11
+nop jmp fc nop 		smlalsls	lr, r12, r0, r11
+nop jmp fd nop 		smlalsls	lr, sp, r0, r11
+nop jmp fe nop 		smlalsls	lr, lr, r0, r11	; <UNPREDICTABLE>
+nop jmp ff nop 		smlalsls	lr, pc, r0, r11	; <UNPREDICTABLE>
+nop nop jmp 04 		strbteq	r9, [r11], #144	; 0x90
+nop nop jmp 05 		strbeq	r9, [r11, #144]!	; 0x90
+nop nop jmp 06 				; <UNDEFINED> instruction: 0x06eb9090
+nop nop jmp 07 				; <UNDEFINED> instruction: 0x07eb9090
+nop nop jmp 08 		stmiaeq	r11!, {r4, r7, r12, pc}^
+nop nop jmp 09 		stmibeq	r11!, {r4, r7, r12, pc}^
+nop nop jmp 0a 		beq	0xffae4a34
+nop nop jmp 0b 		bleq	0xffae4a38
+nop nop jmp 0c 		stcleq	0, cr9, [r11], #576	; 0x240
+nop nop jmp 0d 		stcleq	0, cr9, [r11, #576]!	; 0x240
+nop nop jmp 0e 		mcreq	0, 7, r9, cr11, cr0, {4}
+nop nop jmp 0f 		svceq	0x00eb9090
+nop nop jmp 10 		smlalne	r9, r11, r0, r0
+nop nop jmp 11 				; <UNDEFINED> instruction: 0x11eb9090
+nop nop jmp 12 		rscne	r9, r11, #144	; 0x90
+nop nop jmp 13 		mvnne	r9, #144	; 0x90
+nop nop jmp 14 		strbtne	r9, [r11], #144	; 0x90
+nop nop jmp 15 		strbne	r9, [r11, #144]!	; 0x90
+nop nop jmp 16 				; <UNDEFINED> instruction: 0x16eb9090
+nop nop jmp 17 				; <UNDEFINED> instruction: 0x17eb9090
+nop nop jmp 18 		stmiane	r11!, {r4, r7, r12, pc}^
+nop nop jmp 19 		stmibne	r11!, {r4, r7, r12, pc}^
+nop nop jmp 1a 		bne	0xffae4a74
+nop nop jmp 1b 		blne	0xffae4a78
+nop nop jmp 1c 		stclne	0, cr9, [r11], #576	; 0x240
+nop nop jmp 1d 		stclne	0, cr9, [r11, #576]!	; 0x240
+nop nop jmp 1e 		mcrne	0, 7, r9, cr11, cr0, {4}
+nop nop jmp 1f 		svcne	0x00eb9090
+nop nop jmp 20 		smlalcs	r9, r11, r0, r0
+nop nop jmp 21 				; <UNDEFINED> instruction: 0x21eb9090
+nop nop jmp 22 		rsccs	r9, r11, #144	; 0x90
+nop nop jmp 23 		mvncs	r9, #144	; 0x90
+nop nop jmp 24 		strbtcs	r9, [r11], #144	; 0x90
+nop nop jmp 25 		strbcs	r9, [r11, #144]!	; 0x90
+nop nop jmp 26 				; <UNDEFINED> instruction: 0x26eb9090
+nop nop jmp 27 				; <UNDEFINED> instruction: 0x27eb9090
+nop nop jmp 28 		stmiacs	r11!, {r4, r7, r12, pc}^
+nop nop jmp 29 		stmibcs	r11!, {r4, r7, r12, pc}^
+nop nop jmp 2a 		bcs	0xffae4ab4
+nop nop jmp 2b 		blcs	0xffae4ab8
+nop nop jmp 2c 		stclcs	0, cr9, [r11], #576	; 0x240
+nop nop jmp 2d 		stclcs	0, cr9, [r11, #576]!	; 0x240
+nop nop jmp 2e 		mcrcs	0, 7, r9, cr11, cr0, {4}
+nop nop jmp 2f 		svccs	0x00eb9090
+nop nop jmp 30 		smlalcc	r9, r11, r0, r0
+nop nop jmp 31 				; <UNDEFINED> instruction: 0x31eb9090
+nop nop jmp 32 		rsccc	r9, r11, #144	; 0x90
+nop nop jmp 33 		mvncc	r9, #144	; 0x90
+nop nop jmp 34 		strbtcc	r9, [r11], #144	; 0x90
+nop nop jmp 35 		strbcc	r9, [r11, #144]!	; 0x90
+nop nop jmp 36 				; <UNDEFINED> instruction: 0x36eb9090
+nop nop jmp 37 				; <UNDEFINED> instruction: 0x37eb9090
+nop nop jmp 38 		stmiacc	r11!, {r4, r7, r12, pc}^
+nop nop jmp 39 		stmibcc	r11!, {r4, r7, r12, pc}^
+nop nop jmp 3a 		bcc	0xffae4af4
+nop nop jmp 3b 		blcc	0xffae4af8
+nop nop jmp 3c 		stclcc	0, cr9, [r11], #576	; 0x240
+nop nop jmp 3d 		stclcc	0, cr9, [r11, #576]!	; 0x240
+nop nop jmp 3e 		mcrcc	0, 7, r9, cr11, cr0, {4}
+nop nop jmp 3f 		svccc	0x00eb9090
+nop nop jmp 40 		smlalmi	r9, r11, r0, r0
+nop nop jmp 41 				; <UNDEFINED> instruction: 0x41eb9090
+nop nop jmp 42 		rscmi	r9, r11, #144	; 0x90
+nop nop jmp 43 		mvnmi	r9, #144	; 0x90
+nop nop jmp 44 		strbtmi	r9, [r11], #144	; 0x90
+nop nop jmp 45 		strbmi	r9, [r11, #144]!	; 0x90
+nop nop jmp 46 				; <UNDEFINED> instruction: 0x46eb9090
+nop nop jmp 47 				; <UNDEFINED> instruction: 0x47eb9090
+nop nop jmp 48 		stmiami	r11!, {r4, r7, r12, pc}^
+nop nop jmp 49 		stmibmi	r11!, {r4, r7, r12, pc}^
+nop nop jmp 4a 		bmi	0xffae4b34
+nop nop jmp 4b 		blmi	0xffae4b38
+nop nop jmp 4c 		stclmi	0, cr9, [r11], #576	; 0x240
+nop nop jmp 4d 		stclmi	0, cr9, [r11, #576]!	; 0x240
+nop nop jmp 4e 		mcrmi	0, 7, r9, cr11, cr0, {4}
+nop nop jmp 4f 		svcmi	0x00eb9090
+nop nop jmp 50 		smlalpl	r9, r11, r0, r0
+nop nop jmp 51 				; <UNDEFINED> instruction: 0x51eb9090
+nop nop jmp 52 		rscpl	r9, r11, #144	; 0x90
+nop nop jmp 53 		mvnpl	r9, #144	; 0x90
+nop nop jmp 54 		strbtpl	r9, [r11], #144	; 0x90
+nop nop jmp 55 		strbpl	r9, [r11, #144]!	; 0x90
+nop nop jmp 56 				; <UNDEFINED> instruction: 0x56eb9090
+nop nop jmp 57 				; <UNDEFINED> instruction: 0x57eb9090
+nop nop jmp 58 		stmiapl	r11!, {r4, r7, r12, pc}^
+nop nop jmp 59 		stmibpl	r11!, {r4, r7, r12, pc}^
+nop nop jmp 5a 		bpl	0xffae4b74
+nop nop jmp 5b 		blpl	0xffae4b78
+nop nop jmp 5c 		stclpl	0, cr9, [r11], #576	; 0x240
+nop nop jmp 5d 		stclpl	0, cr9, [r11, #576]!	; 0x240
+nop nop jmp 5e 		mcrpl	0, 7, r9, cr11, cr0, {4}
+nop nop jmp 5f 		svcpl	0x00eb9090
+nop nop jmp 60 		smlalvs	r9, r11, r0, r0
+nop nop jmp 61 				; <UNDEFINED> instruction: 0x61eb9090
+nop nop jmp 62 		rscvs	r9, r11, #144	; 0x90
+nop nop jmp 63 		mvnvs	r9, #144	; 0x90
+nop nop jmp 64 		strbtvs	r9, [r11], #144	; 0x90
+nop nop jmp 65 		strbvs	r9, [r11, #144]!	; 0x90
+nop nop jmp 66 				; <UNDEFINED> instruction: 0x66eb9090
+nop nop jmp 67 				; <UNDEFINED> instruction: 0x67eb9090
+nop nop jmp 68 		stmiavs	r11!, {r4, r7, r12, pc}^
+nop nop jmp 69 		stmibvs	r11!, {r4, r7, r12, pc}^
+nop nop jmp 6a 		bvs	0xffae4bb4
+nop nop jmp 6b 		blvs	0xffae4bb8
+nop nop jmp 6c 		stclvs	0, cr9, [r11], #576	; 0x240
+nop nop jmp 6d 		stclvs	0, cr9, [r11, #576]!	; 0x240
+nop nop jmp 6e 		mcrvs	0, 7, r9, cr11, cr0, {4}
+nop nop jmp 6f 		svcvs	0x00eb9090
+nop nop jmp 70 		smlalvc	r9, r11, r0, r0
+nop nop jmp 71 				; <UNDEFINED> instruction: 0x71eb9090
+nop nop jmp 72 		rscvc	r9, r11, #144	; 0x90
+nop nop jmp 73 		mvnvc	r9, #144	; 0x90
+nop nop jmp 74 		strbtvc	r9, [r11], #144	; 0x90
+nop nop jmp 75 		strbvc	r9, [r11, #144]!	; 0x90
+nop nop jmp 76 				; <UNDEFINED> instruction: 0x76eb9090
+nop nop jmp 77 				; <UNDEFINED> instruction: 0x77eb9090
+nop nop jmp 78 		stmiavc	r11!, {r4, r7, r12, pc}^
+nop nop jmp 79 		stmibvc	r11!, {r4, r7, r12, pc}^
+nop nop jmp 7a 		bvc	0xffae4bf4
+nop nop jmp 7b 		blvc	0xffae4bf8
+nop nop jmp 7c 		stclvc	0, cr9, [r11], #576	; 0x240
+nop nop jmp 7d 		stclvc	0, cr9, [r11, #576]!	; 0x240
+nop nop jmp 7e 		mcrvc	0, 7, r9, cr11, cr0, {4}
+nop nop jmp 7f 		svcvc	0x00eb9090
+nop nop jmp 80 		smlalhi	r9, r11, r0, r0
+nop nop jmp 81 				; <UNDEFINED> instruction: 0x81eb9090
+nop nop jmp 82 		rschi	r9, r11, #144	; 0x90
+nop nop jmp 83 		mvnhi	r9, #144	; 0x90
+nop nop jmp 84 		strbthi	r9, [r11], #144	; 0x90
+nop nop jmp 85 		strbhi	r9, [r11, #144]!	; 0x90
+nop nop jmp 86 				; <UNDEFINED> instruction: 0x86eb9090
+nop nop jmp 87 				; <UNDEFINED> instruction: 0x87eb9090
+nop nop jmp 88 		stmiahi	r11!, {r4, r7, r12, pc}^
+nop nop jmp 89 		stmibhi	r11!, {r4, r7, r12, pc}^
+nop nop jmp 8a 		bhi	0xffae4c34
+nop nop jmp 8b 		blhi	0xffae4c38
+nop nop jmp 8c 		stclhi	0, cr9, [r11], #576	; 0x240
+nop nop jmp 8d 		stclhi	0, cr9, [r11, #576]!	; 0x240
+nop nop jmp 8e 		mcrhi	0, 7, r9, cr11, cr0, {4}
+nop nop jmp 8f 		svchi	0x00eb9090
+nop nop jmp 90 		smlalls	r9, r11, r0, r0
+nop nop jmp 91 				; <UNDEFINED> instruction: 0x91eb9090
+nop nop jmp 92 		rscls	r9, r11, #144	; 0x90
+nop nop jmp 93 		mvnls	r9, #144	; 0x90
+nop nop jmp 94 		strbtls	r9, [r11], #144	; 0x90
+nop nop jmp 95 		strbls	r9, [r11, #144]!	; 0x90
+nop nop jmp 96 				; <UNDEFINED> instruction: 0x96eb9090
+nop nop jmp 97 				; <UNDEFINED> instruction: 0x97eb9090
+nop nop jmp 98 		stmials	r11!, {r4, r7, r12, pc}^
+nop nop jmp 99 		stmibls	r11!, {r4, r7, r12, pc}^
+nop nop jmp 9a 		bls	0xffae4c74
+nop nop jmp 9b 		blls	0xffae4c78
+nop nop jmp 9c 		stclls	0, cr9, [r11], #576	; 0x240
+nop nop jmp 9d 		stclls	0, cr9, [r11, #576]!	; 0x240
+nop nop jmp 9e 		mcrls	0, 7, r9, cr11, cr0, {4}
+nop nop jmp 9f 		svcls	0x00eb9090
+nop nop jmp a0 		smlalge	r9, r11, r0, r0
+nop nop jmp a1 				; <UNDEFINED> instruction: 0xa1eb9090
+nop nop jmp a2 		rscge	r9, r11, #144	; 0x90
+nop nop jmp a3 		mvnge	r9, #144	; 0x90
+nop nop jmp a4 		strbtge	r9, [r11], #144	; 0x90
+nop nop jmp a5 		strbge	r9, [r11, #144]!	; 0x90
+nop nop jmp a6 				; <UNDEFINED> instruction: 0xa6eb9090
+nop nop jmp a7 				; <UNDEFINED> instruction: 0xa7eb9090
+nop nop jmp a8 		stmiage	r11!, {r4, r7, r12, pc}^
+nop nop jmp a9 		stmibge	r11!, {r4, r7, r12, pc}^
+nop nop jmp aa 		bge	0xffae4cb4
+nop nop jmp ab 		blge	0xffae4cb8
+nop nop jmp ac 		stclge	0, cr9, [r11], #576	; 0x240
+nop nop jmp ad 		stclge	0, cr9, [r11, #576]!	; 0x240
+nop nop jmp ae 		mcrge	0, 7, r9, cr11, cr0, {4}
+nop nop jmp af 		svcge	0x00eb9090
+nop nop jmp b0 		smlallt	r9, r11, r0, r0
+nop nop jmp b1 				; <UNDEFINED> instruction: 0xb1eb9090
+nop nop jmp b2 		rsclt	r9, r11, #144	; 0x90
+nop nop jmp b3 		mvnlt	r9, #144	; 0x90
+nop nop jmp b4 		strbtlt	r9, [r11], #144	; 0x90
+nop nop jmp b5 		strblt	r9, [r11, #144]!	; 0x90
+nop nop jmp b6 				; <UNDEFINED> instruction: 0xb6eb9090
+nop nop jmp b7 				; <UNDEFINED> instruction: 0xb7eb9090
+nop nop jmp b8 		stmialt	r11!, {r4, r7, r12, pc}^
+nop nop jmp b9 		stmiblt	r11!, {r4, r7, r12, pc}^
+nop nop jmp ba 		blt	0xffae4cf4
+nop nop jmp bb 		bllt	0xffae4cf8
+nop nop jmp bc 		stcllt	0, cr9, [r11], #576	; 0x240
+nop nop jmp bd 		stcllt	0, cr9, [r11, #576]!	; 0x240
+nop nop jmp be 		mcrlt	0, 7, r9, cr11, cr0, {4}
+nop nop jmp bf 		svclt	0x00eb9090
+nop nop jmp c0 		smlalgt	r9, r11, r0, r0
+nop nop jmp c1 				; <UNDEFINED> instruction: 0xc1eb9090
+nop nop jmp c2 		rscgt	r9, r11, #144	; 0x90
+nop nop jmp c3 		mvngt	r9, #144	; 0x90
+nop nop jmp c4 		strbtgt	r9, [r11], #144	; 0x90
+nop nop jmp c5 		strbgt	r9, [r11, #144]!	; 0x90
+nop nop jmp c6 				; <UNDEFINED> instruction: 0xc6eb9090
+nop nop jmp c7 				; <UNDEFINED> instruction: 0xc7eb9090
+nop nop jmp c8 		stmiagt	r11!, {r4, r7, r12, pc}^
+nop nop jmp c9 		stmibgt	r11!, {r4, r7, r12, pc}^
+nop nop jmp ca 		bgt	0xffae4d34
+nop nop jmp cb 		blgt	0xffae4d38
+nop nop jmp cc 		stclgt	0, cr9, [r11], #576	; 0x240
+nop nop jmp cd 		stclgt	0, cr9, [r11, #576]!	; 0x240
+nop nop jmp ce 		mcrgt	0, 7, r9, cr11, cr0, {4}
+nop nop jmp cf 		svcgt	0x00eb9090
+nop nop jmp d0 		smlalle	r9, r11, r0, r0
+nop nop jmp d1 				; <UNDEFINED> instruction: 0xd1eb9090
+nop nop jmp d2 		rscle	r9, r11, #144	; 0x90
+nop nop jmp d3 		mvnle	r9, #144	; 0x90
+nop nop jmp d4 		strbtle	r9, [r11], #144	; 0x90
+nop nop jmp d5 		strble	r9, [r11, #144]!	; 0x90
+nop nop jmp d6 				; <UNDEFINED> instruction: 0xd6eb9090
+nop nop jmp d7 				; <UNDEFINED> instruction: 0xd7eb9090
+nop nop jmp d8 		stmiale	r11!, {r4, r7, r12, pc}^
+nop nop jmp d9 		stmible	r11!, {r4, r7, r12, pc}^
+nop nop jmp da 		ble	0xffae4d74
+nop nop jmp db 		blle	0xffae4d78
+nop nop jmp dc 		stclle	0, cr9, [r11], #576	; 0x240
+nop nop jmp dd 		stclle	0, cr9, [r11, #576]!	; 0x240
+nop nop jmp de 		mcrle	0, 7, r9, cr11, cr0, {4}
+nop nop jmp df 		svcle	0x00eb9090
+nop nop jmp e0 		smlal	r9, r11, r0, r0
+nop nop jmp e1 				; <UNDEFINED> instruction: 0xe1eb9090
+nop nop jmp e2 		rsc	r9, r11, #144	; 0x90
+nop nop jmp e3 		mvn	r9, #144	; 0x90
+nop nop jmp e4 		strbt	r9, [r11], #144	; 0x90
+nop nop jmp e5 		strb	r9, [r11, #144]!	; 0x90
+nop nop jmp e6 				; <UNDEFINED> instruction: 0xe6eb9090
+nop nop jmp e7 				; <UNDEFINED> instruction: 0xe7eb9090
+nop nop jmp e8 		stmia	r11!, {r4, r7, r12, pc}^
+nop nop jmp e9 		stmib	r11!, {r4, r7, r12, pc}^
+nop nop jmp ea 		b	0xffae4db4
+nop nop jmp eb 		bl	0xffae4db8
+nop nop jmp ec 		stcl	0, cr9, [r11], #576	; 0x240
+nop nop jmp ed 		stcl	0, cr9, [r11, #576]!	; 0x240
+nop nop jmp ee 		mcr	0, 7, r9, cr11, cr0, {4}
+nop nop jmp ef 		svc	0x00eb9090
+nop nop jmp f0 				; <UNDEFINED> instruction: 0xf0eb9090
+nop nop jmp f1 				; <UNDEFINED> instruction: 0xf1eb9090
+nop nop jmp f2 		vshr.s64	d25, d0, #21
+nop nop jmp f3 		vshr.u64	d25, d0, #21
+nop nop jmp f4 		vld1.8			; <UNDEFINED> instruction: 0xf4eb9090
+nop nop jmp f5 				; <UNDEFINED> instruction: 0xf5eb9090
+nop nop jmp f6 				; <UNDEFINED> instruction: 0xf6eb9090
+nop nop jmp f7 				; <UNDEFINED> instruction: 0xf7eb9090
+nop nop jmp f8 				; <UNDEFINED> instruction: 0xf8eb9090
+nop nop jmp f9 				; <UNDEFINED> instruction: 0xf9eb9090
+nop nop jmp fa 				; <UNDEFINED> instruction: 0xfaeb9090
+nop nop jmp fb 				; <UNDEFINED> instruction: 0xfbeb9090
+nop nop jmp fc 				; <UNDEFINED> instruction: 0xfceb9090
+nop nop jmp fd 				; <UNDEFINED> instruction: 0xfdeb9090
+nop nop jmp fe 				; <UNDEFINED> instruction: 0xfeeb9090
+nop nop jmp ff 				; <UNDEFINED> instruction: 0xffeb9090
+	End of assembler dump.

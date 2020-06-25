@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;vojtechkral.github.io&#x2F;css&#x2F;main.css">
+    <title>Polyglot Assembly - vojtechkral.github.io</title>
+</head>
+<body>
+<div id="content">
+    <header>
+        <div id="site-title" href="https:&#x2F;&#x2F;vojtechkral.github.io&#x2F;/">
+            <span style="position: absolute;"><a href="https:&#x2F;&#x2F;vojtechkral.github.io&#x2F;">vojtech<span id="name-separator-offset">k</span>ral</a></span>
+            <span class="faint">vojtěch<span id="name-separator">k</span>rál.github.io</span>
+        </div>
+    </header>
+
+    
+<article>
+    <h1>Polyglot Assembly</h1>
+    <p><em>Writing assembly code that runs on multiple architectures.</em></p>
+    <p>A few years back, while I worked as a Solaris engineer at Oracle,
+I posted an april fools joke to one of our internal mailing lists.
+Do you remember <a href="https://en.wikipedia.org/wiki/Solaris_(operating_system)">Solaris</a>?
+<a href="./pepperidge-farm.jpg">Pepperidge farm remembers</a>.
+Unfortunatelly Solaris 12 was
+<a href="https://arstechnica.com/information-technology/2017/01/oracle-sort-of-confirms-demise-of-solaris-12-effort/">never released</a>
+(not as such, anyway) and many of the devs were laid off shortly afterwards,
+but that's a different story... The april fools e-mail read as follows:</p>
+<pre style="background-color:#ffffff;">
+<span style="color:#000000;">Hi all,
+   can I please get a codereview for my new Hello World program?
+The purpose of the program is to output a greeting.
+As the code is very short, I&#39;m inlining it at the end of this email.
+The code has been tested on sparc and x86.
+Only 64 bit arch is supported - please compile with cc -m64.
+cstyle reports no issues.
+
+Thanks!
+Vojtech
+
+$ cat hello.c
+
+const float main[] = {
+         -5.0076923e-29, -6.02841476e-21, 1.75860328e-33, -4.3672462e-34,
+         -2.03652633e-33, 3.00046579e-32, -6.99961556e-33, -4.36343733e-34,
+         -253599.734, 1.87611745e-33, -4.36724253e-34, -2.03652633e-33,
+         2.62426763e-32, -4.36343733e-34, -253599.859, -1.05886372e-37,
+         -2.84236475e-29, -4.2805483e-28, -7.27646377e-27, -3.28364893e-28,
+         -7.3422524e-38, -8.52233404e-38, -7.19531561e-38, -2.84236445e-29,
+         -6.02842122e-21, 2.3509887e-38, -7.3422524e-38, -8.52233404e-38,
+         -6.02842122e-21, 2.3509887e-38, -7.3422524e-38, -8.52233404e-38,
+         1.69276854e-42, 1.58918456e-40, -7.11823707e-31, 3.30286048e-42,
+         1.26058568e-39, 6.72382769e-36, 5.90304592e+22, 2.02799612e-19,
+         1.17234334e+27, 9.30333261e-40, 1.7976867e-38, 0.0
+};
+</span></pre>
+<p>I expect <code>main()</code> not being a function and instead being an array of numbers
+won't be news to many people, this
+<a href="http://jroweboy.github.io/c/asm/2015/01/26/when-is-main-not-a-function.html">has been done before</a>.
+(If you've never seen this before, have a look at that blogpost, it's pretty good!)</p>
+<p>The focus of this post instead is this line:</p>
+<blockquote>
+<p><strong>The code has been tested on sparc and x86.</strong></p>
+</blockquote>
+<p>Any code that a Solaris dev looked to push to the core repository
+had to be rigorously tested on both architectures targeted by Solaris: x86 and SPARC.
+And this code doesn't really look like it could run on multiple architectures, right? ...
+But it does. And it does that with a trick I call a <em>polyglot assembly</em> code.
+Maybe that's a little too pompous a name for a silly joke, but I didn't know what else to call it...</p>
+<h2 id="linux-x86-64-arm">Linux, x86-64 &amp; ARM</h2>
+<p>I recently decided to revive the idea and, since both Solaris and SPARC
+are fairly obscure nowadays, to port the code over to Linux on x86-64 and ARM.</p>
+<p>Here's the new code:</p>
+<pre style="background-color:#ffffff;">
+<span style="color:#ff5600;">#include </span><span style="color:#00a33f;">&lt;stdint.h&gt;
+
+</span><span style="color:#ff5600;">const </span><span style="color:#a535ae;">uint64_t</span><span style="color:#000000;"> _start[] </span><span style="color:#ff5600;">__attribute__</span><span style="color:#000000;">((section(</span><span style="color:#00a33f;">&quot;.text&quot;</span><span style="color:#000000;">))) </span><span style="color:#ff5600;">= </span><span style="color:#000000;">{
+    0xe3a00001909032eb, 0xe3a0200ce28f1014,
+    0xef000000e3a07004, 0xe3a07001e3a00000,
+    0x6c6c6548ef000000, 0x0a214d5241202c6f,
+    0x18ec834800000000, 0x4800000045058b48,
+    0xa20fc03148240489, 0x0c24548908245c89,
+    0x142444c710244c89, 0x01c0c74800000a21,
+    0x0001c7c748000000, 0x480124748d480000,
+    0x050f00000015c2c7, 0x480000003cc0c748,
+    0x6c654820050fff31, 0x00000000202c6f6c,
+};
+</span></pre>
+<p>It's still just a <em>Hello, World!</em> program.</p>
+<p>To build it, I recommend <code>gcc -static -nostdlib</code>.
+I found out the special section attribute is necessary for gcc to put the code in the right section.</p>
+<p>You can also get pre built binaries <a href="https://github.com/vojtechkral/asm-polyglot/releases/tag/0.1">here</a>.</p>
+<p>Please keep in mind that the resulting binaries are <strong>still platform-specific</strong>.
+The polyglot trick's purpose is to make it possible to build for x86-64 and ARM from the same source file.
+While the executable code inside the ELF file is the same bit by bit for both platforms,
+the ELF header and section layout is somewhat different and unfortunatelly there seems to be no way around this
+(at minimum, the kernel checks the ELF architecture byte and won't load the program unless it matches).</p>
+<p>So anyway, how does it work?</p>
+<p><img src="./diagram.png#right" alt="diagram" /></p>
+<p>The basic idea is pretty simple: The code starts with a magical snippet
+that gets interpreted by both architectures and basically performs
+a conditional jump based on which architecture is runing the code.</p>
+<p><em>Architecture #1</em> decodes this bit as a an effective no-op instruction
+(in my example it's actually an ALU instruction whose output is ignored)
+and simply continues to the area marked blue in the diagram.
+<em>Arch-#1</em>-specific code is stored there.</p>
+<p><em>Architecture #2</em> decodes the initial part as a jump and proceeds
+to jump over to the yellow area where the code for <em>arch #2</em> follows.</p>
+<p>How do you come up with the magical architecture-selecting prolog?</p>
+<p>It turns out x86 is actually a pretty good choice for <em>arch #2</em>, because it has
+a short near-jump instruction, just 2 bytes. Together with 2 <code>NOP</code>s (1 byte each)
+this makes up the length of one regular (non-Thumb) ARM instruction.</p>
+<p>The three x86 instructions, a <code>JMP</code> and two <code>NOP</code>s, can be arbitrarily reordered
+and also the jump distance can be adjusted, and as I found out this is
+enough degrees of freedom to find a valid nop-like ARM instruction.</p>
+<h2 id="searching-the-instruction-space">Searching the instruction space</h2>
+<p>The original Solaris code was a result of basically just hokus-pokus.
+In the Linux rewrite I tried to come up with a somewhat more automated way of finding the right combo.
+There's a hackish <a href="https://github.com/vojtechkral/asm-polyglot/blob/master/jmps.py">python script</a>
+and a Makefile rule that generate <a href="./jmps.txt">a big plaintext list</a> of all <code>NOP</code>/<code>NOP</code>/2-byte <code>JMP</code>
+permutations along with their ARM representations.</p>
+<p>From the list it's apparent that the <code>JMP</code>, <code>NOP</code>, <code>NOP</code> ordering yields a safe
+ARM <code>addsls</code> instruction most of the time, at least as long as the jump distance is small enough
+for the <code>addsls</code> to not touch the <code>sp</code> or <code>pc</code> registers...</p>
+<p>In my case I only need to <code>JMP</code> 52 bytes ahead. This results in <code>addsls r3, r0, r11, ror #5</code> on ARM,
+which is a perfectly harmless instruction. Maybe a bit too complex (a conditional add with a bit rotation), but harmless.</p>
+<p>In summary, the magical bytes that make an x86 CPU jump ahead and
+an ARM CPU continue are:</p>
+<pre style="background-color:#ffffff;">
+<span style="color:#000000;">eb 32 90 90
+</span></pre><h2 id="the-code">The code</h2>
+<p>The source code for this mini-project can be found <a href="https://github.com/vojtechkral/asm-polyglot">on my github</a>.</p>
+<p>The C file quoted above effectively contains the following two code paths for x86-64 and ARM, respectively:</p>
+<div class="two-cols">
+<pre style="background-color:#ffffff;">
+<span style="color:#21439c;">x86:
+    # create a hello message on the stack
+    </span><span style="color:#ff5600;">sub     </span><span style="color:#a535ae;">$</span><span style="color:#000000;">24, </span><span style="color:#21439c;">%</span><span style="color:#000000;">rsp
+    </span><span style="color:#ff5600;">movq    </span><span style="color:#21439c;">msg(%</span><span style="color:#000000;">rip</span><span style="color:#21439c;">)</span><span style="color:#000000;">, </span><span style="color:#21439c;">%</span><span style="color:#000000;">rax
+    </span><span style="color:#ff5600;">mov     </span><span style="color:#21439c;">%</span><span style="color:#000000;">rax, </span><span style="color:#21439c;">(%</span><span style="color:#000000;">rsp</span><span style="color:#21439c;">)
+    </span><span style="color:#ff5600;">xor     </span><span style="color:#21439c;">%</span><span style="color:#000000;">rax, </span><span style="color:#21439c;">%</span><span style="color:#000000;">rax
+    </span><span style="color:#ff5600;">cpuid
+    mov     </span><span style="color:#21439c;">%</span><span style="color:#000000;">ebx, 8</span><span style="color:#21439c;">(%</span><span style="color:#000000;">rsp</span><span style="color:#21439c;">)
+    </span><span style="color:#ff5600;">mov     </span><span style="color:#21439c;">%</span><span style="color:#000000;">edx, 12</span><span style="color:#21439c;">(%</span><span style="color:#000000;">rsp</span><span style="color:#21439c;">)
+    </span><span style="color:#ff5600;">mov     </span><span style="color:#21439c;">%</span><span style="color:#000000;">ecx, 16</span><span style="color:#21439c;">(%</span><span style="color:#000000;">rsp</span><span style="color:#21439c;">)
+    movl    </span><span style="color:#a535ae;">$</span><span style="color:#000000;">0x0a21, 20</span><span style="color:#21439c;">(%</span><span style="color:#000000;">rsp</span><span style="color:#21439c;">)
+
+    # write </span><span style="color:#ff5600;">syscall
+    mov     </span><span style="color:#a535ae;">$</span><span style="color:#000000;">1, </span><span style="color:#21439c;">%</span><span style="color:#000000;">rax
+    </span><span style="color:#ff5600;">mov     </span><span style="color:#a535ae;">$</span><span style="color:#000000;">1, </span><span style="color:#21439c;">%</span><span style="color:#000000;">rdi
+    </span><span style="color:#ff5600;">lea     </span><span style="color:#000000;">1</span><span style="color:#21439c;">(%</span><span style="color:#000000;">rsp</span><span style="color:#21439c;">)</span><span style="color:#000000;">, </span><span style="color:#21439c;">%</span><span style="color:#000000;">rsi
+    </span><span style="color:#ff5600;">mov     </span><span style="color:#a535ae;">$</span><span style="color:#000000;">21, </span><span style="color:#21439c;">%</span><span style="color:#000000;">rdx
+    </span><span style="color:#ff5600;">syscall
+
+    </span><span style="color:#21439c;"># exit </span><span style="color:#ff5600;">syscall
+    mov     </span><span style="color:#a535ae;">$</span><span style="color:#000000;">60, </span><span style="color:#21439c;">%</span><span style="color:#000000;">rax
+    </span><span style="color:#ff5600;">xor     </span><span style="color:#21439c;">%</span><span style="color:#000000;">rdi, </span><span style="color:#21439c;">%</span><span style="color:#000000;">rdi
+    </span><span style="color:#ff5600;">syscall
+
+</span><span style="color:#21439c;">msg:
+    .ascii  </span><span style="color:#00a33f;">&quot; Hello, &quot;
+    </span><span style="color:#21439c;">.</span><span style="color:#ff5600;">int </span><span style="color:#000000;">0x0
+</span></pre><pre style="background-color:#ffffff;">
+<span style="color:#21439c;">arm:
+    # write </span><span style="color:#ff5600;">syscall
+    mov     </span><span style="color:#21439c;">%r0</span><span style="color:#000000;">, </span><span style="color:#a535ae;">$</span><span style="color:#000000;">1
+    </span><span style="color:#21439c;">adr     %r1</span><span style="color:#000000;">, </span><span style="color:#21439c;">msg
+    </span><span style="color:#ff5600;">mov     </span><span style="color:#21439c;">%r2</span><span style="color:#000000;">, </span><span style="color:#a535ae;">$</span><span style="color:#21439c;">len
+    </span><span style="color:#ff5600;">mov     </span><span style="color:#21439c;">%r7</span><span style="color:#000000;">, </span><span style="color:#a535ae;">$</span><span style="color:#000000;">4
+    </span><span style="color:#21439c;">swi     </span><span style="color:#a535ae;">$</span><span style="color:#000000;">0
+
+    </span><span style="color:#21439c;"># exit </span><span style="color:#ff5600;">syscall
+    mov     </span><span style="color:#21439c;">%r0</span><span style="color:#000000;">, </span><span style="color:#a535ae;">$</span><span style="color:#000000;">0
+    </span><span style="color:#ff5600;">mov     </span><span style="color:#21439c;">%r7</span><span style="color:#000000;">, </span><span style="color:#a535ae;">$</span><span style="color:#000000;">1
+    </span><span style="color:#21439c;">swi     </span><span style="color:#a535ae;">$</span><span style="color:#000000;">0
+
+</span><span style="color:#21439c;">msg:
+    .ascii  </span><span style="color:#00a33f;">&quot;Hello, ARM!\n&quot;
+    </span><span style="color:#21439c;">.</span><span style="color:#a535ae;">equ </span><span style="color:#21439c;">len</span><span style="color:#000000;">, </span><span style="color:#21439c;">. </span><span style="color:#000000;">- </span><span style="color:#21439c;">msg
+    .</span><span style="color:#ff5600;">int </span><span style="color:#000000;">0x0
+</span></pre></div>
+<p>I decided to automate the whole process of generating the C file and the binaries for x86-64 and ARM.
+There's a big <code>Makefile</code> that goes through the arduous process of first generating ARM code from the source ARM asm file,
+dumping the compiled ARM, feeding that to a Python script with a template of the x86 + compiled ARM code,
+compiling that, generating the C source from that, and finally compiling the C source for both x86 and ARM.</p>
+<p>Running the Makefile requires having an arm cross-compiling gcc installed along with a matching gdb.</p>
+<h2 id="practical-applications">Practical applications</h2>
+<p>There are none :-)</p>
+<p>At least as far as I know.
+As stated earlier, the resulting binary is still platform-specific,
+Which means the trick can't be used to make multi-platform ELFs :-|</p>
+<p>In theory it could be used to create a multi-platform shellcode,
+but I find it unlikely that it would actually be useful in practice.</p>
+<p>Multi-platform kernels maybe? But then again boot procedures differ quite a lot
+between architectures, so again it's probably not very practical...</p>
+<p>So yeah, it's really just a joke done for fun and to perhaps learn something new...</p>
+
+</article>
+
+
+    <footer>
+        <svg id="pax" xmlns="http://www.w3.org/2000/svg" width="65" height="65">
+            <path fill="none" stroke="#000" stroke-width="6" d="m32,3a29,29 0 1,0
+            .1,0zm0,15.5a4.5,4.5 0 1,0 .1,0zm-7.8,13.5a4.5,4.5 0 1,0
+            .1,0zm15.6,0a4.5,4.5 0 1,0 .1,0zm0,2v7m-16,0v-7m6-12h7"/>
+        </svg>
+    </footer>
+</div>
+</body>
+</html>
