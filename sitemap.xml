@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    
-        <url>
-            <loc>https://vojtechkral.github.io/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://vojtechkral.github.io/blag/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://vojtechkral.github.io/blag/polyglot-assembly/</loc>
-            
-                <lastmod>2020-05-10</lastmod>
-            
-        </url>
-    
+    <url>
+        <loc>https://vojtechkral.github.io/</loc>
+    </url>
+    <url>
+        <loc>https://vojtechkral.github.io/blag/</loc>
+    </url>
+    <url>
+        <loc>https://vojtechkral.github.io/blag/polyglot-assembly/</loc>
+        <lastmod>2020-05-10</lastmod>
+    </url>
+    <url>
+        <loc>https://vojtechkral.github.io/blag/rust-drop-order/</loc>
+        <lastmod>2020-09-23</lastmod>
+    </url>
 </urlset>

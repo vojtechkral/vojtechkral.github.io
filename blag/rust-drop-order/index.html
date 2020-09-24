@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;vojtechkral.github.io&#x2F;css&#x2F;main.css">
+    <title>Drop order in Rust: It&#x27;s tricky - vojtechkral.github.io</title>
+</head>
+<body>
+<div id="content">
+    <header>
+        <div id="site-title" href="https:&#x2F;&#x2F;vojtechkral.github.io&#x2F;/">
+            <span style="position: absolute;"><a href="https:&#x2F;&#x2F;vojtechkral.github.io&#x2F;">vojtech<span id="name-separator-offset">k</span>ral</a></span>
+            <span class="faint">vojtěch<span id="name-separator">k</span>rál.github.io</span>
+        </div>
+    </header>
+
+    
+<article>
+    <h1>Drop order in Rust: It&#x27;s tricky</h1>
+    <p><em>Exploring a few strange cases of drop behaviour in Rust</em></p>
+    <p>Consider the following (simplified) code:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#ff5600;">impl </span><span style="color:#000000;">Foo {
+    </span><span style="color:#ff5600;">fn </span><span style="color:#21439c;">do_something</span><span style="color:#000000;">(</span><span style="color:#ff5600;">&amp;mut </span><span style="color:#000000;">self) {
+        </span><span style="color:#ff5600;">let _ = </span><span style="color:#000000;">self.lock.</span><span style="color:#a535ae;">lock</span><span style="color:#000000;">();
+        self.resource.</span><span style="color:#a535ae;">use_somehow</span><span style="color:#000000;">();
+    }
+}
+</span></code></pre>
+<p>This might be in some FFI- or OS-interfacing code or a similar
+special situation where one doesn't have the luxury of a <a href="https://doc.rust-lang.org/std/sync/struct.MutexGuard.html"><code>MutexGuard</code></a>
+which guarantees a resource can only be accessed through a lock guard deref.</p>
+<p>In any case (as you can probably tell if you've got Rust experience)
+the code above doesn't do what it should.<br />
+The <code>_</code> symbol in the first
+line of the function is <em>not</em> a variable name (or, more technically, a <em>binding</em>).
+It's a <em>pattern</em>, one that matches anything and discards it.
+This means the guard returned by <code>lock()</code> is dropped right away
+on that first line and the lock isn't locked when <code>resource</code>
+is accessed.</p>
+<p>To fix it we just need to give the guard an actual binding:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#ff5600;">let</span><span style="color:#000000;"> _guard </span><span style="color:#ff5600;">= </span><span style="color:#000000;">self.lock.</span><span style="color:#a535ae;">lock</span><span style="color:#000000;">();
+</span></code></pre>
+<p>... and now the lock only gets unlocked at the end of the function's
+scope.<br />
+The takeaway is that you should <strong>never use <code>_</code> for RAII guards</strong>.</p>
+<p>That example was straightforward enough, but what about this one (a):</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#ff5600;">impl </span><span style="color:#000000;">Foo {
+    </span><span style="color:#ff5600;">fn </span><span style="color:#21439c;">do_something</span><span style="color:#000000;">(</span><span style="color:#ff5600;">&amp;mut </span><span style="color:#000000;">self) {
+        </span><span style="color:#ff5600;">let</span><span style="color:#000000;"> _guard </span><span style="color:#ff5600;">= </span><span style="color:#000000;">self.lock.</span><span style="color:#a535ae;">lock</span><span style="color:#000000;">();
+        </span><span style="color:#ff5600;">let _ =</span><span style="color:#000000;"> guard;
+        self.resource.</span><span style="color:#a535ae;">use_somehow</span><span style="color:#000000;">();
+    }
+}
+</span></code></pre>
+<p>Or this (b):</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#ff5600;">impl </span><span style="color:#000000;">Foo {
+    </span><span style="color:#ff5600;">fn </span><span style="color:#21439c;">do_something</span><span style="color:#000000;">(</span><span style="color:#ff5600;">&amp;mut </span><span style="color:#000000;">self) {
+        </span><span style="color:#ff5600;">match </span><span style="color:#000000;">self.lock.</span><span style="color:#a535ae;">try_lock</span><span style="color:#000000;">() {
+            </span><span style="color:#a535ae;">Ok</span><span style="color:#000000;">(</span><span style="color:#ff5600;">_</span><span style="color:#000000;">) </span><span style="color:#ff5600;">=&gt; </span><span style="color:#000000;">self.resource.</span><span style="color:#a535ae;">use_somehow</span><span style="color:#000000;">(),
+            </span><span style="color:#a535ae;">Err</span><span style="color:#000000;">(err) </span><span style="color:#ff5600;">=&gt; </span><span style="color:#a535ae;">log_error</span><span style="color:#000000;">(err),
+        }
+    }
+}
+</span></code></pre>
+<p>Or even this (c):</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#ff5600;">fn </span><span style="color:#21439c;">do_something</span><span style="color:#000000;">(resource: </span><span style="color:#ff5600;">&amp;mut</span><span style="color:#000000;"> Resource, </span><span style="color:#ff5600;">_</span><span style="color:#000000;">: Guard) {
+    resource.</span><span style="color:#a535ae;">use_somehow</span><span style="color:#000000;">();
+}
+</span></code></pre>
+<p>Can you tell whther the lock is held while the resource is accessed
+in these examples?</p>
+<h2 id="the-drop-rules">The drop rules</h2>
+<p>In detail, the rules are <a href="https://doc.rust-lang.org/reference/destructors.html">described in the reference</a>,
+with some juicy examples.</p>
+<p>A brief, simplified summary:</p>
+<ul>
+<li>Scope variables are dropped in <strong>reverse</strong> order of declaration.
+<ul>
+<li>Nested scopes are dropped in an inside-out order.</li>
+</ul>
+</li>
+<li>Function arguments are likewise dropped in <strong>reverse</strong> order of declaration.</li>
+<li><code>struct</code> fields are dropped in the <strong>same</strong> order as declared in the struct (source-code-wise, not memory-layout-wise).</li>
+<li>&quot;Sequenced things&quot;, ie. elements of tuples, enum variants, arrays, and owned slices are dropped in order of the sequence.</li>
+</ul>
+<p>However, there's <em>quite a lot</em> of fineprint.</p>
+<p>For demostration purposes, let's first define a simple type that prints a string on drop:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#ff5600;">struct </span><span style="color:#000000;">Token(</span><span style="color:#ff5600;">&amp;&#39;static str</span><span style="color:#000000;">);
+
+</span><span style="color:#ff5600;">impl </span><span style="color:#000000;">Drop </span><span style="color:#ff5600;">for </span><span style="color:#000000;">Token {
+    </span><span style="color:#ff5600;">fn </span><span style="color:#21439c;">drop</span><span style="color:#000000;">(</span><span style="color:#ff5600;">&amp;mut </span><span style="color:#000000;">self) {
+        println!(</span><span style="color:#00a33f;">&quot;[drop] {}&quot;</span><span style="color:#000000;">, self.0);
+    }
+}
+</span></code></pre>
+<p>Equipped with this gadget, let's try something:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#ff5600;">fn </span><span style="color:#21439c;">scope</span><span style="color:#000000;">() {
+    </span><span style="color:#ff5600;">let _ =</span><span style="color:#000000;"> Token(</span><span style="color:#00a33f;">&quot;_ pattern&quot;</span><span style="color:#000000;">);
+
+    </span><span style="color:#ff5600;">let</span><span style="color:#000000;"> t1 </span><span style="color:#ff5600;">=</span><span style="color:#000000;"> Token(</span><span style="color:#00a33f;">&quot;1&quot;</span><span style="color:#000000;">);
+    </span><span style="color:#ff5600;">let _ =</span><span style="color:#000000;"> t1;
+
+    </span><span style="color:#ff5600;">let</span><span style="color:#000000;"> t2 </span><span style="color:#ff5600;">=</span><span style="color:#000000;"> Token(</span><span style="color:#00a33f;">&quot;2&quot;</span><span style="color:#000000;">);
+    </span><span style="color:#ff5600;">let</span><span style="color:#000000;"> t2 </span><span style="color:#ff5600;">=</span><span style="color:#000000;"> t1;
+    println!(</span><span style="color:#00a33f;">&quot;t2 re-assigned&quot;</span><span style="color:#000000;">);
+}
+</span></code></pre>
+<p>Everyone's favourite game; what will that code print?</p>
+<p>Given the fact that the code compiles, you can already tell that the line <code>let _ = t1;</code>
+doesn't really do anything, there's no effect, since we can later use <code>t1</code> and
+re-assign it as <code>t2</code>, shadowing the previous <code>t2</code>. So this answers the example (a) above, it's correct.
+How will the shadowing of <code>t2</code> affect drop order though?<br />
+On this line:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#ff5600;">let</span><span style="color:#000000;"> t2 </span><span style="color:#ff5600;">=</span><span style="color:#000000;"> t1;
+</span></code></pre>
+<p>... since Token #2 is no longer accessible in any way, maybe it can be dropped right here?<br />
+Well, no, that's now how that works, both tokens are dropped at the end of
+the scope. But in what order? This code prints:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">[drop] _ pattern
+t2 re-assigned
+[drop] 1
+[drop] 2
+</span></code></pre>
+<p>So, what happened is that the re-assignment <code>let t2 = t1</code> only swapped the drop order
+of the two tokens. Why on Earth would that be the case?<br />
+From the drop perspective, the re-assignment of <code>t2</code> is as if a different binding
+were introduced, let's call it <code>t2'</code>.
+We now effectively have three variables in the scope, <code>t1</code>, <code>t2</code>, and <code>t2'</code>.
+And in fact they get dropped in the reverse order of declaration, exactly as the rederence says:</p>
+<ol>
+<li><code>t2'</code> is dropped, its <code>drop()</code> implenetation prints <code>&quot;[drop] 1&quot;</code> (because it holds Token #1).</li>
+<li><code>t2</code> is dropped, its <code>drop()</code> implenetation prints <code>&quot;[drop] 2&quot;</code>.</li>
+<li><code>t1</code> is dropped, its <code>drop()</code> function is <em>not run</em>, because it's been moved-from in the course
+of the function. (When you move a value in Rust, whatever is the
+new owner of the value also acquires the responsibility to eventually run <code>drop()</code>.)</li>
+</ol>
+<h2 id="expressions-match-if-let-and-if">Expressions: <code>match</code>, <code>if let</code>, and <code>if</code></h2>
+<p>Now let's do something similar to example (b) from above, but also with <code>if let</code> and a regular <code>if</code>:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#ff5600;">fn </span><span style="color:#21439c;">exprs</span><span style="color:#000000;">() {
+    </span><span style="color:#ff5600;">fn </span><span style="color:#21439c;">make_token</span><span style="color:#000000;">(s: </span><span style="color:#ff5600;">&amp;&#39;static str</span><span style="color:#000000;">) -&gt; </span><span style="color:#a535ae;">Result</span><span style="color:#000000;">&lt;Token, ()&gt; {
+        </span><span style="color:#a535ae;">Ok</span><span style="color:#000000;">(Token(s))
+    }
+
+    </span><span style="color:#ff5600;">match </span><span style="color:#a535ae;">make_token</span><span style="color:#000000;">(</span><span style="color:#00a33f;">&quot;matched token&quot;</span><span style="color:#000000;">) {
+        </span><span style="color:#a535ae;">Ok</span><span style="color:#000000;">(</span><span style="color:#ff5600;">_</span><span style="color:#000000;">) </span><span style="color:#ff5600;">=&gt; </span><span style="color:#000000;">println!(</span><span style="color:#00a33f;">&quot;match arm&quot;</span><span style="color:#000000;">),
+        </span><span style="color:#a535ae;">Err</span><span style="color:#000000;">(</span><span style="color:#ff5600;">_</span><span style="color:#000000;">) </span><span style="color:#ff5600;">=&gt; </span><span style="color:#000000;">unreachable!(),
+    }
+    println!(</span><span style="color:#00a33f;">&quot;after match&quot;</span><span style="color:#000000;">);
+
+    </span><span style="color:#ff5600;">if let </span><span style="color:#a535ae;">Ok</span><span style="color:#000000;">(</span><span style="color:#ff5600;">_</span><span style="color:#000000;">) </span><span style="color:#ff5600;">= </span><span style="color:#a535ae;">make_token</span><span style="color:#000000;">(</span><span style="color:#00a33f;">&quot;if let token&quot;</span><span style="color:#000000;">) {
+        println!(</span><span style="color:#00a33f;">&quot;if let body&quot;</span><span style="color:#000000;">);
+    }
+    println!(</span><span style="color:#00a33f;">&quot;after if let&quot;</span><span style="color:#000000;">);
+
+    </span><span style="color:#ff5600;">if </span><span style="color:#a535ae;">make_token</span><span style="color:#000000;">(</span><span style="color:#00a33f;">&quot;if token&quot;</span><span style="color:#000000;">).</span><span style="color:#a535ae;">is_ok</span><span style="color:#000000;">() {
+        println!(</span><span style="color:#00a33f;">&quot;if body&quot;</span><span style="color:#000000;">);
+    }
+    println!(</span><span style="color:#00a33f;">&quot;after if&quot;</span><span style="color:#000000;">);
+}
+</span></code></pre>
+<p>Long story short, in case of <code>match</code> and <code>if let</code>, the value from <code>make_token()</code>
+gets bound to the scope of the whole <code>match</code>/<code>if let</code> expression and is only dropped after the
+final <code>}</code>,
+despite the pattern matching with <code>_</code>. (So, the (b) example from above is correct as well!).</p>
+<p>However, the regular <code>if</code> is different.
+In that case, the value is only bound to the scope of the conditional boolean
+expression and is in fact dropped before the <code>if</code>'s body is executed.</p>
+<p>There are also drop scoping rules about match arms, there's <code>while let</code> and a few more
+nooks and crannies of the language, but I didn't find any of them particularly weird,
+so I'm not going to go into more detail here regarding expressions.</p>
+<h2 id="function-arguments">Function arguments</h2>
+<p>Ok, so what about (c)? Let's do something along those lines but, like, more evil:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#ff5600;">fn </span><span style="color:#21439c;">fn_args</span><span style="color:#000000;">() {
+    </span><span style="color:#ff5600;">fn </span><span style="color:#21439c;">takes_args</span><span style="color:#000000;">(t1: Token, (_, t2): (Token, Token), </span><span style="color:#ff5600;">_</span><span style="color:#000000;">: Token) {
+        println!(</span><span style="color:#00a33f;">&quot;function body&quot;</span><span style="color:#000000;">);
+    }
+
+    </span><span style="color:#a535ae;">takes_args</span><span style="color:#000000;">(Token(</span><span style="color:#00a33f;">&quot;t1&quot;</span><span style="color:#000000;">), (Token(</span><span style="color:#00a33f;">&quot;t2.0&quot;</span><span style="color:#000000;">), Token(</span><span style="color:#00a33f;">&quot;t2.1&quot;</span><span style="color:#000000;">)), Token(</span><span style="color:#00a33f;">&quot;_&quot;</span><span style="color:#000000;">));
+}
+</span></code></pre>
+<p>First thing you'll notice when running this one is that all of the arguments
+are dropped at the function exit, none before the body, not even the one matched as <code>_</code>.<br />
+The actual drop order end up being:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">[drop] _
+[drop] t2.1
+[drop] t2.0
+[drop] t1
+</span></code></pre>
+<p>This seems mostly what you'd expect, except that <code>t2.1</code> gets dropped before
+<code>t2.0</code>, which seems weird. Shouldn't tuples be dropped in order?</p>
+<p>The reason why the order is this way is that arguments get passed to
+functions in a sort of a two-step manner. All the arguments get
+moved inside the function and then the pattern matching happens inside,
+but at that point the arguments are already bound
+to the scope of the whole function. So, in effect, the above function could
+be de-sugared to something akin to this:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#ff5600;">fn </span><span style="color:#21439c;">takes_args</span><span style="color:#000000;">(arg0: Token, arg1: (Token, Token), arg2: Token) {
+    </span><span style="color:#ff5600;">let</span><span style="color:#000000;"> t1 </span><span style="color:#ff5600;">=</span><span style="color:#000000;"> arg0;
+    </span><span style="color:#ff5600;">let</span><span style="color:#000000;"> __invisible0 </span><span style="color:#ff5600;">=</span><span style="color:#000000;"> arg1;
+    </span><span style="color:#ff5600;">let</span><span style="color:#000000;"> t2 </span><span style="color:#ff5600;">=</span><span style="color:#000000;"> __invisible0.1;
+    </span><span style="color:#ff5600;">let</span><span style="color:#000000;"> __invisible1 </span><span style="color:#ff5600;">=</span><span style="color:#000000;"> arg2;
+    {
+        println!(</span><span style="color:#00a33f;">&quot;function body&quot;</span><span style="color:#000000;">);
+    }
+}
+</span></code></pre>
+<p>In summary, function arguments do generally get dropped in reverse order like the reference
+says, but with pattern matching you can alter the order in non-obvious ways.</p>
+<p>Corollary: The (c) example is correct too.</p>
+<h2 id="function-final-value">Function final value</h2>
+<p>When creating a temporary as part of a final expression
+of a function:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#ff5600;">fn </span><span style="color:#21439c;">fn_final_value</span><span style="color:#000000;">() {
+    #[allow(unused)]
+    </span><span style="color:#ff5600;">fn </span><span style="color:#21439c;">final_value</span><span style="color:#000000;">(t1: Token) -&gt; </span><span style="color:#ff5600;">&amp;&#39;static str </span><span style="color:#000000;">{
+        </span><span style="color:#ff5600;">let</span><span style="color:#000000;"> t2 </span><span style="color:#ff5600;">=</span><span style="color:#000000;"> Token(</span><span style="color:#00a33f;">&quot;in body&quot;</span><span style="color:#000000;">);
+        Token(</span><span style="color:#00a33f;">&quot;final value&quot;</span><span style="color:#000000;">).0
+    }
+
+    </span><span style="color:#ff5600;">let</span><span style="color:#000000;"> res </span><span style="color:#ff5600;">= </span><span style="color:#a535ae;">final_value</span><span style="color:#000000;">(Token(</span><span style="color:#00a33f;">&quot;arg&quot;</span><span style="color:#000000;">));
+    println!(</span><span style="color:#00a33f;">&quot;{}&quot;</span><span style="color:#000000;">, res);
+}
+</span></code></pre>
+<p>... the value gets dropped <em>after</em> all local variables (but before arguments).<br />
+This is kind of strange. But so far I haven't found a way in which this could bite
+someone in the rear.</p>
+<h2 id="examples-source-code">Examples source code</h2>
+<p>All the above examples can be found <a href="https://gist.github.com/vojtechkral/4b43e056ca451115904377108212b689">in this gist</a>.<br />
+You can also <a href="https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=4b43e056ca451115904377108212b689">run the code in the Playground</a>.</p>
+<h2 id="preventing-drops-or-enforcing-custom-order">Preventing drops or enforcing custom order</h2>
+<p>In my experience the need to prevent drops altogether
+or enforce some non-standard drop order mostly comes up in FFI code.</p>
+<p>The rule of thumb in those cases is to use <a href="https://doc.rust-lang.org/std/mem/struct.ManuallyDrop.html"><code>ManuallyDrop</code></a>
+over other things, particularly over <code>mem::forget()</code>.</p>
+<p>Let's consider a typical case, a callback called from C code where
+the C API holds an opaque pointer to a user-supplied context:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#ff5600;">extern </span><span style="color:#00a33f;">&quot;C&quot; </span><span style="color:#ff5600;">fn </span><span style="color:#21439c;">ffi_on_data</span><span style="color:#000000;">(data: Data, opaque: </span><span style="color:#ff5600;">*mut</span><span style="color:#000000;"> c_void) {
+    </span><span style="color:#ff5600;">let</span><span style="color:#000000;"> this: </span><span style="color:#a535ae;">Box</span><span style="color:#000000;">&lt;Foo&gt; </span><span style="color:#ff5600;">= unsafe </span><span style="color:#000000;">{ </span><span style="color:#a535ae;">Box</span><span style="color:#000000;">::from_raw(opaque </span><span style="color:#ff5600;">as _</span><span style="color:#000000;">) };
+    this.</span><span style="color:#a535ae;">on_data</span><span style="color:#000000;">(data);
+    </span><span style="color:#919191;">// Problem: `this` must not be dropped, it would de-allocate the
+    // opaque data too early!
+</span><span style="color:#000000;">}
+</span></code></pre>
+<p>Traditionally (at least before <code>ManuallyDrop</code> was around), one would use <code>mem::forget(this)</code>
+to make sure the instance is not dropped. However, using <code>mem::forget()</code> like that is fragile,
+especially once the function gets more complex. There may be a number of <code>return</code> points
+or someone might add one in future... And it becomes easy to forget to <code>forget()</code> :-)</p>
+<p>With <code>ManuallyDrop</code> there's no such problem:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#ff5600;">extern </span><span style="color:#00a33f;">&quot;C&quot; </span><span style="color:#ff5600;">fn </span><span style="color:#21439c;">ffi_on_data</span><span style="color:#000000;">(data: Data, opaque: </span><span style="color:#ff5600;">*mut</span><span style="color:#000000;"> c_void) {
+    </span><span style="color:#ff5600;">let</span><span style="color:#000000;"> this: </span><span style="color:#a535ae;">Box</span><span style="color:#000000;">&lt;Foo&gt; </span><span style="color:#ff5600;">= unsafe </span><span style="color:#000000;">{ </span><span style="color:#a535ae;">Box</span><span style="color:#000000;">::from_raw(opaque </span><span style="color:#ff5600;">as _</span><span style="color:#000000;">) };
+    </span><span style="color:#ff5600;">let</span><span style="color:#000000;"> this </span><span style="color:#ff5600;">= </span><span style="color:#000000;">ManuallyDrop::new(this);
+    this.</span><span style="color:#a535ae;">on_data</span><span style="color:#000000;">(data);
+    </span><span style="color:#919191;">// The `Box` contained in `this` doesn&#39;t get dropped.
+</span><span style="color:#000000;">}
+</span></code></pre>
+</article>
+
+
+    <footer>
+        <svg id="pax" xmlns="http://www.w3.org/2000/svg" width="65" height="65">
+            <path fill="none" stroke="#000" stroke-width="6" d="m32,3a29,29 0 1,0
+            .1,0zm0,15.5a4.5,4.5 0 1,0 .1,0zm-7.8,13.5a4.5,4.5 0 1,0
+            .1,0zm15.6,0a4.5,4.5 0 1,0 .1,0zm0,2v7m-16,0v-7m6-12h7"/>
+        </svg>
+    </footer>
+</div>
+</body>
+</html>
